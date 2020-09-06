@@ -1,0 +1,13 @@
+<template>
+    <lightning-card title="COVID - 19 Tracker" icon-name="standard:product_consumed" class="card" style="padding:500px">
+        <div class="combo-box">
+            <lightning-combobox name="progress" label="Countries" value={selected} options={options}
+                onchange={handleChange} required></lightning-combobox>
+            <p>Selected value is: {selected}</p>
+            <div class="chart slds-m-around_medium" lwc:dom="manual"></div>
+            <template if:true={error}>
+                <p>{error}</p>
+            </template>
+        </div>
+    </lightning-card>
+</template>
