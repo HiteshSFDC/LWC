@@ -145,7 +145,6 @@ export default class Lwc_dynamicDataOnGraph extends LightningElement {
     }
 
     //This method updates the graph
-    // TODO -> Modify according to your need
 
     updateMapData(totalConfirmed, totalRecovered, totalDeaths) {
         this.config.data.datasets[0].data = [totalConfirmed, totalRecovered, totalDeaths];
