@@ -19,7 +19,6 @@ export default class Lwc_dynamicDataOnGraph extends LightningElement {
     chart;
     chartjsInitialized = false;
 
-    // TODO -> make the variables according to your need.
     selected = "India";
     totalRecovered = 0;
     totalConfirmed = 0;
