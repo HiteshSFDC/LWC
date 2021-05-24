@@ -1,0 +1,44 @@
+<!--
+  @description       : Attachements viewer
+  @author            : Hitesh Garg
+  @last modified on  : 05-24-2021
+  @last modified by  : Hitesh Garg
+  Modifications Log 
+  Ver   Date         Author        Modification
+  1.0   05-23-2021   Hitesh Garg   Initial Version
+-->
+<template>
+    <template if:true={showSpinner}>
+        <lightning-spinner alternative-text="Loading Files..." size="small" variant="brand"></lightning-spinner>
+    </template>
+
+    <ul class="slds-grid slds-wrap" if:true={isCmpLoaded}>
+        <template if:true={fileRecords} for:each={fileRecords} for:item="fileRecord">
+            <li key={fileRecord.fileId}
+                class="slds-var-p-horizontal_xx-small slds-size_1-of-2 slds-var-p-bottom_x-small ">
+                <div class="slds-file slds-file_card slds-has-title">
+                    <figure>
+                        <a onclick={handlePreview} data-id={fileRecord.fileConDocId} class="slds-file__crop"
+                            target="_blank">
+                            <img src={fileRecord.thumbnailPath} alt={fileRecord.fileName} />
+                        </a>
+                        <figcaption class="slds-file__title slds-file__title_card">
+                            <div class="slds-media slds-media_small slds-media_center">
+                                <div class="slds-media__body">
+                                    <p class="slds-file__text slds-truncate" title={fileRecord.Title}></p>
+                                    <a href={fileRecord.downloadUrl} target="_self"> {fileRecord.fileName} </a></p>
+                                    </p>
+                                    <p>
+                                        <lightning-formatted-date-time value={fileRecord.fileDate}>
+                                        </lightning-formatted-date-time> . {fileRecord.fileSize} . {fileRecord.fileExtn}
+                                    </p>
+
+                                </div>
+                            </div>
+                        </figcaption>
+                    </figure>
+                </div>
+            </li>
+        </template>
+    </ul>
+</template>
